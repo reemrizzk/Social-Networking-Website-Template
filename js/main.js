@@ -1,4 +1,4 @@
-/* useful functions:
+/* useful functions */
 $(function () {
     $("#msg-send").click(function () {
         var subject = $("#msg-subject").val();
@@ -189,4 +189,3 @@ function submitg(e, comment, postid) {
         return false;
     }
 }
-*/
