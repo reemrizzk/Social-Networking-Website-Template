@@ -168,5 +168,5 @@ function submitg(e, comment, postid) {
         });
         return false;
     }
-*/
 }
+*/
