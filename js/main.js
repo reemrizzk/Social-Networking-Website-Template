@@ -1,22 +1,26 @@
-/* useful functions */
+
 $(function () {
-    $("#msg-send").click(function () {
-        var subject = $("#msg-subject").val();
-        var msg = $("#msg-content").val();
-        if (subject.trim().length != 0 && msg.trim().length != 0) {
-            $.post(
-                "(website url here)",
-                {
-                    sub: subject,
-                    msg: msg,
-                    recip: "recipient here",
-                },
-                function (data, status) {
-                    alert("Data: " + data + "\nStatus: " + status);
-                }
-            );
-        }
+	
+    $("#btn-posts").click(function () {
+        $("#btn-info").css({ height: "3.25em", "line-height": "3.25em", "border-bottom": "0" });
+        $("#btn-posts").css({ height: "3.5em", "line-height": "3.5em", "border-bottom": "0.25em solid #FFFFFF" });
+        $("#profile-about").hide();
+        $("#profile-posts").show();
     });
+	
+    $("#btn-info").click(function () {
+        $("#btn-posts").css({ height: "3.25em", "line-height": "3.25em", "border-bottom": "0" });
+        $("#btn-info").css({ height: "3.5em", "line-height": "3.5em", "border-bottom": "0.25em solid #FFFFFF" });
+        $("#profile-posts").hide();
+        $("#profile-about").show();
+    });
+	
+	$("#upload-photo").click(function () {
+        $("#post-images").click();
+    });
+	
+/*
+	
     $("#btn-follow").click(function () {
         var dataString = "req=(username)";
         var response = "";
@@ -44,30 +48,9 @@ $(function () {
                     $("#btn-follow").show();
                 },
             });
-        }
+       }
     });
-
-    $("#btn-msg").click(function () {
-        if (screen.width >= 1024) {
-            $("#barrier").show();
-            $(".window").show();
-        } else {
-            document.location = "(website's url)";
-        }
-    });
-    $("#btn-posts").click(function () {
-        $("#btn-info").css({ height: "3.25em", "line-height": "3.25em", "border-bottom": "0" });
-        $("#btn-posts").css({ height: "3.5em", "line-height": "3.5em", "border-bottom": "0.25em solid #FFFFFF" });
-        $("#profile-about").hide();
-        $("#profile-posts").show();
-    });
-    $("#btn-info").click(function () {
-        $("#btn-posts").css({ height: "3.25em", "line-height": "3.25em", "border-bottom": "0" });
-        $("#btn-info").css({ height: "3.5em", "line-height": "3.5em", "border-bottom": "0.25em solid #FFFFFF" });
-        $("#profile-posts").hide();
-        $("#profile-about").show();
-    });
-
+	
     $("#b-1").click(function () {
         $("#mainerror").html("");
         $("#nameerror").html("");
@@ -131,20 +114,17 @@ $(function () {
             return false;
         }
     });
-
-    $(document).keypress(function (e) {
+	
+	$(document).keypress(function (e) {
         if (e.which == 13 && $("#search-box").is(":focus")) {
             var search = encodeURI($("#search-box").val());
             search = search.replace("#", "%23");
             window.location.href = "searchurlhere?q=" + search;
         }
     });
-
-    $("#upload-photo").click(function () {
-        $("#post-images").click();
-    });
+*/
 });
-
+/*
 function follow(f) {
     var dataString = "req=" + f;
     var response = "";
@@ -188,4 +168,5 @@ function submitg(e, comment, postid) {
         });
         return false;
     }
+*/
 }
