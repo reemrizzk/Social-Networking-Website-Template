@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1.0,width=device-width">
+        <link href="http://fonts.googleapis.com/css?family=Open Sans" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/main.css" type="text/css">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/main.js"></script>
+        <style>
+            .write-comment {
+                width: 95%;
+            }
+            @media screen and (max-width: 240px) {
+                html,
+                button,
+                input {
+                    font-size: 8px;
+                }
+            }
+        </style>
+        <title>Profile</title>
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+                <a href="index.html"><img id="logo-comp" draggable="false" alt="website logo" src="images/logo.png"><img id="logo-mob" draggable="false" alt="website logo" src="images/logo.png"></a>
+            </div>
+            <div id="navigation">
+                <ul>
+                    <li style="width: 5em !important;"><a id="menu-login" href="javascript:void(0);" onclick="$('#register-box').hide();$('#login-box').toggle();">Sign in</a></li>
+                    <li style="width: 5em !important;"><a id="menu-register" href="javascript:void(0);" onclick="$('#login-box').hide();$('#register-box').toggle();">Register</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="login-box">
+            <div class="wrapper">
+                <form method="post" action="login">
+                    <input
+                        type="text"
+                        class="inputs"
+                        name="username"
+                        id="enter-username"
+                        style="display: block; width: 94%; margin-top: 0; margin-bottom: 0.5em; padding-left: 3%; padding-right: 3%;"
+                        id="enter-username"
+                        placeholder="Username"
+                        maxlength="50"
+                   >
+                    <input
+                        type="password"
+                        class="inputs"
+                        name="password"
+                        id="enter-password"
+                        style="display: block; width: 94%; margin-top: 0; margin-bottom: 0.5em; padding-left: 3%; padding-right: 3%;"
+                        id="enter-password"
+                        placeholder="Password"
+                        maxlength="50"
+                   >
+                    <p id="login-error" class="purple" style="margin-bottom: 0.5em; font-size: 14px;"></p>
+                    <input type="button" id="login-button" class="filled-button" style="display: block; width: 100%;" onclick="submitLogin();" value="Login">
+                </form>
+            </div>
+        </div>
+        <div id="register-box">
+            <div class="wrapper">
+                <div id="r-1">
+                    <input type="text" style="display: block; width: 94%; margin-top: 0; margin-bottom: 0.5em; padding-left: 3%; padding-right: 3%;" id="fullname" placeholder="Your name" class="inputs">
+                    <div id="nameerror"></div>
+                    <input type="text" style="display: block; width: 94%; margin-top: 0; margin-bottom: 0.5em; padding-left: 3%; padding-right: 3%;" id="email" placeholder="Your email" class="inputs">
+                    <div id="emailerror"></div>
+                    <input type="text" style="display: block; width: 94%; margin-top: 0; margin-bottom: 0.5em; padding-left: 3%; padding-right: 3%;" id="username" placeholder="Username" class="inputs">
+                    <div id="usernameerror"></div>
+                    <input type="password" style="display: block; width: 94%; margin-top: 0; margin-bottom: 0.5em; padding-left: 3%; padding-right: 3%;" id="password" placeholder="Password" class="inputs">
+                    <div id="passworderror"></div>
+                    <div id="mainerror"></div>
+                    <button id="b-1" class="btn">Register</button>
+                    <p style="margin-top: 0.5em; font-size: 0.75em; color: #505050;">By clicking Register, you confirm that you agree to our <a href="guidelines">Guidelines</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="profile-info">
+            <div class="wrapper">
+                <div id="avatar-big">
+                    <div id="profile-picture" style="border: 0.0625em solid #dddddd; text-align: center; overflow: hidden; background-color: #ffffff; border-radius: 3em; width: 6em; height: 6em;">
+                        <img style="height: 6em;" src="images/fullsize.png">
+                    </div>
+                    <h1 style="text-align: left;" class="purple">User Example <span style="color: #808080; font-size: 0.6em; vertical-align: middle;">(@UserExample)</span></h1>
+
+                    <div id="profile-buttons" style="margin-top: 0.5em;"><button id="btn-follow">Follow</button> <button id="btn-msg">Message</button></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div id="profile-nav">
+            <ul>
+                <li><a href="javascript:void(0)" id="btn-posts">Activity</a></li>
+                <li><a href="javascript:void(0)" id="btn-info">Info</a></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+
+        <div id="profile-boxes-container">
+            <div id="profile-posts">
+                <div id="posts">
+                    <div class="post-container">
+                        <div class="post">
+                            <div style="background-color: #ffffff;" class="post-avatar">
+                                <img alt="" class="post-img-avatar" src="images/profilepicture.png">
+                            </div>
+                            <a style="font-weight: normal;" href="#" class="post-username">UserExample</a><span class="purple"> </span><br>
+                            <a style="font-size: 0.9em; color: #808080;" href="#">1h</a>
+                            <div class="clear"></div>
+                            <p class="post-text" style="margin-top: 0.5em; color: #000000;">
+                                Post example
+                            </p>
+                            <div class="clear"></div>
+
+                            <div class="post-buttons"><img alt="Like" src="images/like.png"><img alt="Comment" src="images/comment.png"></div>
+                            <div id="c1" class="comments">
+                                <input type="text" class="inputs write-comment" placeholder="Write a comment...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-container">
+                        <div class="post">
+                            <div style="background-color: #ffffff;" class="post-avatar">
+                                <img alt="" class="post-img-avatar" src="images/profilepicture.png">
+                            </div>
+                            <a style="font-weight: normal;" href="#" class="post-username">UserExample</a><span class="purple"> </span><br>
+                            <a style="font-size: 0.9em; color: #808080;" href="#">1h</a>
+                            <div class="clear"></div>
+                            <p class="post-text" style="margin-top: 0.5em; color: #000000;"><a href="#">@UserExample2</a> Mention example</p>
+                            <div class="clear"></div>
+
+                            <div class="post-buttons"><img alt="Like" src="images/like.png"><img alt="Comment" src="images/comment.png"></div>
+                            <div id="c2" class="comments">
+                                <input type="text" class="inputs write-comment" placeholder="Write a comment...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-container">
+                        <div class="post">
+                            <div style="background-color: #ffffff;" class="post-avatar has-story">
+                                <img alt="" class="post-img-avatar" src="images/profilepicture.png">
+                            </div>
+                            <a style="font-weight: normal;" href="#" class="post-username">UserExample</a><span class="purple"> </span><br>
+                            <a style="font-size: 0.9em; color: #808080;" href="#">1h</a>
+                            <div class="clear"></div>
+                            <p class="post-text" style="margin-top: 0.5em; color: #000000;">
+                                Post example
+                            </p>
+                            <div class="clear"></div>
+
+                            <div class="post-buttons"><img alt="Like" src="images/like.png"><img alt="Comment" src="images/comment.png"></div>
+                            <div id="c3" class="comments">
+                                <input type="text" class="inputs write-comment" placeholder="Write a comment...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-container">
+                        <div class="post">
+                            <div style="background-color: #ffffff;" class="post-avatar">
+                                <img alt="" class="post-img-avatar" src="images/profilepicture.png">
+                            </div>
+                            <a style="font-weight: normal;" href="#" class="post-username">UserExample</a><span class="purple"> </span><br>
+                            <a style="font-size: 0.9em; color: #808080;" href="#">1h</a>
+                            <div class="clear"></div>
+                            <p class="post-text" style="margin-top: 0.5em; color: #000000;"><a href="#">@UserExample2</a> Mention example</p>
+                            <div class="clear"></div>
+
+                            <div class="post-buttons"><img alt="Like" src="images/like.png"><img alt="Comment" src="images/comment.png"></div>
+                            <div id="c4" class="comments">
+                                <input type="text" class="inputs write-comment" placeholder="Write a comment...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div id="profile-about">
+            <div class="wrapper">
+                <h1>UserExample&#39;s info</h1>
+                <p>Gender: Male</p>
+                <p>Birthday: January 1, 2000</p>
+                <p>Member since May 1, 2022</p>
+                <h1>Following</h1>
+                <div class="friend-container">
+                    <div class="friend-img"><img alt="" src="images/profilepicture.png"></div>
+                    <div class="friend-name"><a href="#">User Example 1</a></div>
+                </div>
+                <div class="friend-container">
+                    <div class="friend-img"><img alt="" src="images/profilepicture.png"></div>
+                    <div class="friend-name"><a href="#">User Example 2</a></div>
+                </div>
+                <div class="friend-container">
+                    <div class="friend-img"><img alt="" src="images/profilepicture.png"></div>
+                    <div class="friend-name"><a href="#">User Example 3</a></div>
+                </div>
+                <div class="friend-container">
+                    <div class="friend-img"><img alt="" src="images/profilepicture.png"></div>
+                    <div class="friend-name"><a href="#">User Example 4</a></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1.0,width=device-width">
+        <meta name="description" content="Social networking website">
+        <meta name="keywords" content="social,friends,connect,photos,share,upload,post,profile">
+        <link rel="stylesheet" href="css/main.css" type="text/css">
+        <link rel="stylesheet" href="css/homepage.css" type="text/css">
+        <link rel="stylesheet" href="slick-master/slick/slick-theme.css">
+        <link rel="stylesheet" href="slick-master/slick/slick.css">
+        <script src="js/jquery.min.js"></script>
+        <script src="slick-master/slick/slick.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+            $(document).ready(function () {
+                $(".stories").slick({
+                    slidesToShow: 5,
+                    swipe: true,
+                    autoplay: false,
+                    accessibility: true,
+                    arrows: true,
+                    rows: 1,
+                    responsive: [
+                        {
+                            breakpoint: 1260,
+                            settings: {
+                                slidesToShow: 5,
+                                infinite: true,
+                            },
+                        },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 4,
+                            },
+                        },
+                        {
+                            breakpoint: 350,
+                            settings: {
+                                slidesToShow: 3,
+                            },
+                        },
+                        {
+                            breakpoint: 250,
+                            settings: {
+                                slidesToShow: 2,
+                            },
+                        },
+                    ],
+                });
+            });
+        </script>
+        <title>Website</title>
+        <style>
+            .write-comment {
+                width: 95%;
+            }
+            .stories {
+                width: 85% !important;
+                margin: auto !important;
+            }
+            .stories div {
+                overflow: hidden;
+            }
+            .stories img,
+            .has-story {
+                border-radius: 4em;
+                padding: 0.25em;
+                border: 0.125em solid #ff4080;
+                cursor: pointer;
+            }
+            .stories a {
+                display: block;
+                text-align: left;
+                width: 3.8em;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+                <a href="#"><img id="logo-comp" draggable="false" alt="website logo" src="images/logo.png"><img id="logo-mob" draggable="false" alt="website logo" src="images/logo.png"> </a>
+            </div>
+            <div id="navigation">
+                <ul>
+                    <li>
+                        <a id="menu-home" href="#"><img class="nav-icon" src="images/home.png"></a>
+                    </li>
+                    <li>
+                        <a id="menu-profile" href="#"><img class="nav-icon" src="images/profile.png"></a>
+                    </li>
+                    <li>
+                        <a
+                            id="noti-img"
+                            style="position: relative;"
+                            href="javascript:void(0);"
+                            onclick="$('#items-noti').load('(Notifications file url)');
+	$('#items-msgs').hide();$('#items-noti').slideToggle();"
+                        >
+                            <div class="count-noti">1</div>
+                            <img class="nav-icon" src="images/notification.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            id="msg-img"
+                            style="position: relative;"
+                            href="javascript:void(0);"
+                            onclick="$('#items-msgs').load('http://localhost/websitename/notifications?ms #show-msgs');
+	$('#items-noti').hide();$('#items-msgs').slideToggle();"
+                        >
+                            <img class="nav-icon" src="images/inbox.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"><img class="nav-icon" src="images/logout.png"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="items-noti"></div>
+        <div id="items-msgs"></div>
+        <div id="home-container">
+            <div id="home-top">
+                <div class="column">
+                    <div class="wrapper">
+                        <div class="post-avatar">
+                            <img alt="" class="post-img-avatar" src="images/profilepicture.png">
+                        </div>
+                        <div style="float: left;">
+                            <p style="margin-bottom: 0;" class="purple"><a href="profile.html">YourName</a></p>
+                            <a style="font-size: 0.85em;" href="#">Edit profile</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div id="postn" class="create-post">
+                        <div class="wrapper">
+                            <form method="post" action="" enctype="multipart/form-data">
+                                <input type="hidden" name="mycolor" id="mycolor" value="#000000">
+                                <textarea name="mypost" id="post-textarea" placeholder="Write a post" maxlength="255"></textarea><input type="file" name="mypost-image" id="post-images" style="display: none;" accept="image/*">
+                                <div class="btmalign">
+                                    <img alt="photo" id="upload-photo" title="Add a photo" src="images/camera.png">
+                                    <input type="submit" name="submitpost" id="submit-button" style="display: none;" value="Post">
+                                    <input type="button" id="post-publish-button" onclick="$('#submit-button').click();" class="btn" value="Post">
+                                </div>
+                            </form>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div id="home-posts">
+                <div id="posts">
+                    <h1>Stories</h1>
+                    <div class="slider stories">
+                        <div><img alt="" class="post-img-avatar" src="images/profilepicture.png"> <a href="#">UserExample</a></div>
+                        <div><img alt="" class="post-img-avatar" src="images/profilepicture.png"> <a href="#">UserExample</a></div>
+                        <div><img alt="" class="post-img-avatar" src="images/profilepicture.png"> <a href="#">UserExample</a></div>
+                        <div><img alt="" class="post-img-avatar" src="images/profilepicture.png"> <a href="#">UserExample</a></div>
+                        <div><img alt="" class="post-img-avatar" src="images/profilepicture.png"> <a href="#">UserExample</a></div>
+                        <div><img alt="" class="post-img-avatar" src="images/profilepicture.png"> <a href="#">UserExample</a></div>
+                    </div>
+
+                    <div class="post-container">
+                        <div class="post">
+                            <div style="background-color: #ffffff;" class="post-avatar">
+                                <img alt="" class="post-img-avatar" src="images/profilepicture.png">
+                            </div>
+                            <a style="font-weight: normal;" href="profile.html" class="post-username">UserExample</a><span class="purple"> </span><br>
+                            <a style="font-size: 0.9em; color: #808080;" href="profile.html">1h</a>
+                            <div class="clear"></div>
+                            <p class="post-text" style="margin-top: 0.5em; color: #000000;">
+                                Post example
+                            </p>
+                            <div class="clear"></div>
+
+                            <div class="post-buttons"><img alt="Like" src="images/like.png"><img alt="Comment" src="images/comment.png"></div>
+                            <div id="c1" class="comments">
+                                <input type="text" class="inputs write-comment" placeholder="Write a comment...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-container">
+                        <div class="post">
+                            <div style="background-color: #ffffff;" class="post-avatar">
+                                <img alt="" class="post-img-avatar" src="images/profilepicture.png">
+                            </div>
+                            <a style="font-weight: normal;" href="profile.html" class="post-username">UserExample</a><span class="purple"> </span><br>
+                            <a style="font-size: 0.9em; color: #808080;" href="profile.html">1h</a>
+                            <div class="clear"></div>
+                            <p class="post-text" style="margin-top: 0.5em; color: #000000;"><a href="profile.html">@UserExample2</a> Mention example</p>
+                            <div class="clear"></div>
+
+                            <div class="post-buttons"><img alt="Like" src="images/like.png"><img alt="Comment" src="images/comment.png"></div>
+                            <div id="c2" class="comments">
+                                <input type="text" class="inputs write-comment" placeholder="Write a comment...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-container">
+                        <div class="post">
+                            <div style="background-color: #ffffff;" class="post-avatar has-story">
+                                <img alt="" class="post-img-avatar" src="images/profilepicture.png">
+                            </div>
+                            <a style="font-weight: normal;" href="profile.html" class="post-username">UserExample</a><span class="purple"> </span><br>
+                            <a style="font-size: 0.9em; color: #808080;" href="profile.html">1h</a>
+                            <div class="clear"></div>
+                            <p class="post-text" style="margin-top: 0.5em; color: #000000;">
+                                Post example
+                            </p>
+                            <div class="clear"></div>
+
+                            <div class="post-buttons"><img alt="Like" src="images/like.png"><img alt="Comment" src="images/comment.png"></div>
+                            <div id="c3" class="comments">
+                                <input type="text" class="inputs write-comment" placeholder="Write a comment...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-container">
+                        <div class="post">
+                            <div style="background-color: #ffffff;" class="post-avatar">
+                                <img alt="" class="post-img-avatar" src="images/profilepicture.png">
+                            </div>
+                            <a style="font-weight: normal;" href="profile.html" class="post-username">UserExample</a><span class="purple"> </span><br>
+                            <a style="font-size: 0.9em; color: #808080;" href="profile.html">1h</a>
+                            <div class="clear"></div>
+                            <p class="post-text" style="margin-top: 0.5em; color: #000000;"><a href="profile.html">@UserExample2</a> Mention example</p>
+                            <div class="clear"></div>
+
+                            <div class="post-buttons"><img alt="Like" src="images/like.png"><img alt="Comment" src="images/comment.png"></div>
+                            <div id="c4" class="comments">
+                                <input type="text" class="inputs write-comment" placeholder="Write a comment...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="seemore" href="Javascript:void(0);">See more posts</a>
+            </div>
+        </div>
+
+        <div id="home-other" style="float: left; display: inline; width: 40%;">
+            <div class="home-box">
+                <h1>Suggestions</h1>
+                <div style="margin-top: 0.5em; margin-bottom: 0.5em;">
+                    <div class="post-avatar">
+                        <img alt="" class="post-img-avatar" src="images/profilepicture.png">
+                    </div>
+                    <div style="float: left;">
+                        <p class="suggestion"><a href="profile.html">Suggested User 1</a></p>
+                        <p style="color: #505050; margin: 0; font-size: 0.9em;">(@SuggestedUser1)</p>
+                    </div>
+                    <button id="follow-SuggestedUser1" onclick="follow('SuggestedUser1');" class="filled-button" style="padding-left: 1em; padding-right: 1em; float: right;">Follow</button>
+                    <div class="clear"></div>
+                </div>
+                <div style="margin-top: 0.5em; margin-bottom: 0.5em;">
+                    <div class="post-avatar">
+                        <img alt="" class="post-img-avatar" src="images/profilepicture.png">
+                    </div>
+                    <div style="float: left;">
+                        <p class="suggestion"><a href="profile.html">Suggested User 2</a></p>
+                        <p style="color: #505050; margin: 0; font-size: 0.9em;">(@SuggestedUser2)</p>
+                    </div>
+                    <button id="follow-SuggestedUser2" onclick="follow('SuggestedUser2');" class="filled-button" style="padding-left: 1em; padding-right: 1em; float: right;">Follow</button>
+                    <div class="clear"></div>
+                </div>
+                <div style="margin-top: 0.5em; margin-bottom: 0.5em;">
+                    <div class="post-avatar">
+                        <img alt="" class="post-img-avatar" src="images/profilepicture.png">
+                    </div>
+                    <div style="float: left;">
+                        <p class="suggestion"><a href="profile.html">Suggested User 3</a></p>
+                        <p style="color: #505050; margin: 0; font-size: 0.9em;">(@SuggestedUser3)</p>
+                    </div>
+                    <button id="follow-SuggestedUser3" onclick="follow('SuggestedUser3');" class="filled-button" style="padding-left: 1em; padding-right: 1em; float: right;">Follow</button>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+            <div id="home-toolbar">
+                <input type="text" placeholder="Search people or hashtags" class="inputs" id="search-box">
+                <div class="clear"></div>
+            </div>
+
+            <div class="footer">
+                <ul>
+                    <li><a href="about">ABOUT</a></li>
+                    <li><a href="guidelines">TERMS</a></li>
+                    <li><a href="privacy">PRIVACY</a></li>
+                    <li><a href="contact">CONTACT</a></li>
+                    <li><a href="help">HELP</a></li>
+                </ul>
+                <span id="copyright">(Copyright notice here)</span>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </body>
+</html>

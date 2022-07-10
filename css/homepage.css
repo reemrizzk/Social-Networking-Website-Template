@@ -1,0 +1,54 @@
+/*
+.ui-autocomplete.ui-menu .ui-menu-item.ui-state-focus {
+    background-image: none !important;
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+    border-left: 1px solid #c3c3c3;
+    border-right: 1px solid #c3c3c3;
+    background: #ebebeb !important;
+    color: #333333 !important;
+}
+#fo2 {
+    display: none;
+}
+@media screen and (max-width: 62em) {
+    #fo1 {
+        display: none;
+    }
+    #fo2 {
+        display: block;
+    }
+}
+#chatbox {
+    -webkit-box-shadow: 0em 0em 1.5em 0em rgba(10, 10, 10, 0.75);
+    -moz-box-shadow: 0em 0em 1.5em 0em rgba(10, 10, 10, 0.75);
+    box-shadow: 0em 0em 1.5em 0em rgba(10, 10, 10, 0.75);
+}
+#ardown {
+    display: none;
+    cursor: pointer;
+}
+@media screen and (max-width: 62em) {
+    #chatbox {
+        display: none;
+    }
+    #ardown {
+        display: block;
+    }
+}
+*/
+@media screen and (max-width: 240px) {
+    html {
+        font-size: 8px;
+    }
+}
+body {
+    margin-top:48px;
+}
